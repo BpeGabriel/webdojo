@@ -1,6 +1,6 @@
 describe('Formulário de Consultoria', () => {
 
-    it('Deve solicitar consultoria individual', () => {
+    it.only('Deve solicitar consultoria individual', () => {
         cy.start()
         cy.submitLoginForm('papito@webdojo.com', 'katana123')
 
@@ -80,17 +80,21 @@ describe('Formulário de Consultoria', () => {
 
         cy.contains('button', 'Enviar formulário').click()
 
-        cy.contains('div', 'Sucesso!')
+       cy.get('.modal' , {timeout : 7000})
             .should('be.visible')
-
-        cy.contains('button', 'Fechar').click()
+            .find('.modal-header')
+            .should('be.visible')
+            .and('have.text','Sucesso!')
+       
+       
+            cy.contains('button', 'Fechar').click()
 
         cy.contains('h1', 'Consultoria').should('be.visible')
 
     })
 
 
-    it.only('Deve mostrar campos obrigatórios', () => {
+    it('Deve mostrar campos obrigatórios', () => {
 
         cy.start()
         cy.submitLoginForm('papito@webdojo.com', 'katana123')
