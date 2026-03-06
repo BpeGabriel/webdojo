@@ -50,3 +50,9 @@ Cypress.Commands.add('goTo', (button, page) => {
 
 })
 
+//Helper
+Cypress.Commands.add('login', () => {
+
+    cy.start()
+    cy.submitLoginForm('papito@webdojo.com', 'katana123')
+})

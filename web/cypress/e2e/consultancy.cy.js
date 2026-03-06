@@ -1,10 +1,12 @@
 describe('Formulário de Consultoria', () => {
 
-    it('Deve solicitar consultoria individual', () => {
-        cy.start()
-        cy.submitLoginForm('papito@webdojo.com', 'katana123')
-
+//Esse ('beforeEach()=> {}) serve para colocar uma ação antes de qualquer it, auxilia quando tem muitos teste em uma só página
+    beforeEach(() => {
+        cy.login()
         cy.goTo('Formulários', 'Consultoria')
+    })
+
+    it('Deve solicitar consultoria individual', () => {
 
         cy.get('#name').type('Gabriel Barbosa')
 
@@ -80,25 +82,22 @@ describe('Formulário de Consultoria', () => {
 
         cy.contains('button', 'Enviar formulário').click()
 
-       cy.get('.modal' , {timeout : 7000})
+        cy.get('.modal', { timeout: 7000 })
             .should('be.visible')
             .find('.modal-header')
             .should('be.visible')
-            .and('have.text','Sucesso!')
-       
-       
-            cy.contains('button', 'Fechar').click()
+            .and('have.text', 'Sucesso!')
+
+
+        cy.contains('button', 'Fechar').click()
 
         cy.contains('h1', 'Consultoria').should('be.visible')
 
     })
 
 
-    it('Deve mostrar campos obrigatórios', () => {
+    it('Deve mostrar campos obrigatórios', () =>{
 
-        cy.start()
-        cy.submitLoginForm('papito@webdojo.com', 'katana123')
-        cy.goTo('Formulários', 'Consultoria')
         cy.contains('button', 'Enviar formulário').click()
 
 
@@ -127,11 +126,12 @@ describe('Formulário de Consultoria', () => {
             .and('have.class', 'text-red-400')
             .and('have.css', 'color', 'rgb(248, 113, 113)')
 
-    })
-})
 
-    //it('Deve solicitar Integração', () => {
-    //    cy.start()
-    //  cy.submitLoginForm('papito@webdojo.com', 'katana123')
-    //  cy.goTo('Integração', 'Consulta de CEP')
-    //
+    })
+
+})
+//it('Deve solicitar Integração', () => {
+//    cy.start()
+//  cy.submitLoginForm('papito@webdojo.com', 'katana123')
+//  cy.goTo('Integração', 'Consulta de CEP')
+//
