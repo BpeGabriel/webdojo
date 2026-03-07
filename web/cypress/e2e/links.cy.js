@@ -1,8 +1,10 @@
 describe('Links abrindo nova guia/janela', () => {
 
-    it('Validando o atributo link no navegador', () => {
-
+    beforeEach(()=>{
         cy.login()
+    })
+
+    it('Validando o atributo link no navegador', () => {
 
         cy.get('[data-cy="instagram-link"]')
             .should('have.attr', 'href', 'https://www.instagram.com/qapapito')

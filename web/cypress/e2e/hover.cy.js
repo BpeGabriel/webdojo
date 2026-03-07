@@ -1,8 +1,12 @@
 describe('Simulando mouse hover', () => {
 
+    beforeEach(()=>{
+        cy.login()
+    })
+
     it('Deve mostrar o texto ao colocar o mouse em cima do texto', () => {
 
-        cy.login()
+        
 
         cy.contains('Isso é Mouseover!').should('not.exist')
         cy.get('[data-cy="instagram-link"]').realHover()

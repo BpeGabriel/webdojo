@@ -1,0 +1,51 @@
+{
+  "company": {
+    "name": "gabriel Barbosa",
+    "email": "teste@gmail.com",
+    "phone": "81998863511",
+    "consultancytype": "In Company",
+    "persontype": "Pessoa Jurídica",
+    "document": "11222333444400",
+    "DiscoveryChannels": [
+      "Udemy",
+      "YouTube",
+      "LinkedIn",
+      "Instagram",
+      "Indicação de Amigo"
+    ],
+    "file": "./cypress/fixtures/Download.jpg",
+    "description": "Necessito de uma ajuda para embarcar no ramo da automação de QA",
+    "Techs": [
+      "Cypress",
+      "Html5",
+      "Java Script",
+      "Scrum"
+    ],
+    "terms": true
+  },
+  "personal": {
+    "name": "gabriel Barbosa",
+    "email": "teste@gmail.com",
+    "phone": "81998863511",
+    "consultancytype": "Individual",
+    "persontype": "Pessoa Física",
+    "document": "03607719470",
+    "DiscoveryChannels": [
+      "Udemy",
+      "YouTube",
+      "LinkedIn",
+      "Instagram",
+      "Indicação de Amigo"
+    ],
+    "file": "./cypress/fixtures/Download.jpg",
+    "description": "Necessito de uma ajuda para embarcar no ramo da automação de QA",
+    "Techs": [
+      "Cypress",
+      "Html5",
+      "Java Script",
+      "Scrum"
+    ],
+    "terms": true
+  }
+}
+

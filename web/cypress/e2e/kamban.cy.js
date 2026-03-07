@@ -1,8 +1,11 @@
 describe('Kanban board', () => {
 
-    it('Deve mover uma tarefa de to do para done e atualizar o board', () => {
 
+    beforeEach(()=>{
         cy.login()
+    })
+
+    it('Deve mover uma tarefa de to do para done e atualizar o board', () => {
 
         cy.wait(1000)
 

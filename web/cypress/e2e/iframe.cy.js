@@ -1,8 +1,12 @@
 describe('Iniciar o iframe', () => {
 
-    it('Deve dar play no iframe', () => {
-        cy.login()
 
+    beforeEach(() => {
+        cy.login()
+    })
+
+    it('Deve dar play no iframe', () => {
+   
         cy.goTo('Video', 'Video')
 
         cy.get('iframe[title="Video Player"]')
@@ -12,13 +16,15 @@ describe('Iniciar o iframe', () => {
             .as('iFramePlayer')
 
         cy.get('@iFramePlayer')
+            .should('exist')
             .find('.play-button')
+            .should('be.visible')
             .click()
 
 
         cy.get('@iFramePlayer')
             .find('.pause-button')
-            .should('be.visible')
+            .should('exist')
     })
 
 })
