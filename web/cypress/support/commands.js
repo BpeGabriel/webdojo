@@ -26,6 +26,7 @@
 
 import 'cypress-real-events'
 import './actions/consuntancy.actions.js'
+import './actions/github.actions.js'
 
 Cypress.Commands.add('start', () => {
     cy.viewport(1440, 900)
