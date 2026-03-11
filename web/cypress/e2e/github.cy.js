@@ -34,11 +34,25 @@ describe('Pagina tabela', () => {
 
         cy.contains('table tbody tr', 'BpeGabriel')
             .should('be.visible')
-            .find('button[title= "Remover perfil"]' )
+            .find('button[title= "Remover perfil"]')
             .click()
 
-        cy.contains('table tbody' , 'BpeGabriel')
-        .should('not.exist')
+        cy.contains('table tbody', 'BpeGabriel')
+            .should('not.exist')
+    })
+
+    it('Deve abrir um link externo para o github', () => {
+        cy.insertGithubData()
+        cy.submiteAddProfile()
+
+        cy.contains('table tbody tr', 'BpeGabriel')
+            .should('be.visible')
+            .as('trProfile')
+
+            .get('@trProfile')
+            .find('a[title="Abrir perfil no GitHub"]')
+            .should('have.attr', 'href', 'https://github.com/BpeGabriel')
+            .and('have.attr', 'target', '_blank')
     })
 
     it('Deve mostrar campos obrigatórios', () => {
@@ -63,18 +77,5 @@ describe('Pagina tabela', () => {
 
     })
 
-    it('Deve abrir um link externo para o github', ()=> {
-        cy.insertGithubData()
-        cy.submiteAddProfile()
-
-        cy.contains('table tbody tr', 'BpeGabriel')
-            .should('be.visible')
-            .as('trProfile')
-
-            .get('@trProfile')
-            .find('a[title="Abrir perfil no GitHub"]')
-            .should('have.attr', 'href', 'https://github.com/BpeGabriel')
-            .and('have.attr', 'target', '_blank')
-        })
 
 })
