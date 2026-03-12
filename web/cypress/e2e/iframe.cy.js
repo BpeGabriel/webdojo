@@ -9,6 +9,8 @@ describe('Iniciar o iframe', () => {
    
         cy.goTo('Video', 'Video')
 
+        cy.wait(2000)
+
         cy.get('iframe[title="Video Player"]')
             .should('exist')
             .its('0.contentDocument.body')
