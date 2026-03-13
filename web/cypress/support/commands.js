@@ -27,10 +27,10 @@
 import 'cypress-real-events'
 import './actions/consuntancy.actions.js'
 import './actions/github.actions.js'
+import {getTodayDate} from './utils.js'
 
 Cypress.Commands.add('start', () => {
-    cy.viewport(1440, 900)
-    cy.visit('localhost:3000')
+    cy.visit('/')
 })
 
 Cypress.Commands.add('submitLoginForm', (email, senha) => {
@@ -53,17 +53,6 @@ Cypress.Commands.add('goTo', (button, page) => {
 
 })
 
-
-function getTodayDate() {
-    const today = new Date();
-
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-
-    return `${day}/${month}/${year}`;
-}
-
 //Helper
 Cypress.Commands.add('login', (ui = false) => {
 
@@ -76,7 +65,7 @@ Cypress.Commands.add('login', (ui = false) => {
 
         cy.setCookie('login_date', loginDate)
 
-        cy.visit('http://localhost:3000/dashboard', {
+        cy.visit('/dashboard', {
             onBeforeLoad(win) {
                 win.localStorage.setItem('token', token)
             }
