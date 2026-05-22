@@ -2,13 +2,7 @@ describe('Cadastrar usuário', () => {
 
     beforeEach(() => {
         cy.start()
-           
-           cy.intercept('POST', 'http://localhost:3333/api/users/register', {
-             statusCode:201 ,
-            body: {
-                message: 'Usuário cadastrado com Sucesso'
-            }
-        }).as('postSignup')
+
 
         
     })
@@ -31,7 +25,7 @@ describe('Cadastrar usuário', () => {
         cy.contains('button', 'Criar conta')
             .click()
 
-        cy.wait('@postSignup')
+  //      cy.wait('@postSignup')
 
         cy.contains('Conta criada com sucesso!')
             .should('be.visible')
